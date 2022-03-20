@@ -102,41 +102,44 @@ table  th {
 <body>
 <h1>Sales</h1>
 <div class="categ">
-<h3>select a category</h3>
-<button onclick="book()">book</button>
-<button onclick="food()">food</button>
-<button onclick="medical()">medical</button>
-<button onclick="impo()">import</button>
-<button onclick="others()">others</button>
+	<h3>select a category</h3>
+	<button onclick="book()">book</button>
+	<button onclick="food()">food</button>
+	<button onclick="medical()">medical</button>
+	<button onclick="impo()">import</button>
+	<button onclick="others()">others</button>
 </div>
-<div class="flexin">
-  <form method="POST"><br>
+	
+<form method="POST"><br>
     <label for="lname">prod id:</label><br>
     <input type="text" id="ids" name="cost"><br><br>
     <label for="lname">Cost:</label><br>
     <input type="text" id="cost" name="cost"><br><br>
     <label for="txa">tax added to product:</label><br>
     <input type="text" id="tax" name="tax" style="cursor: no-drop;" readonly><br><br>
-    </form>
+</form>
 
-    <div class="main">
+<div class="main">
       <button id="final" onclick="final()">Find Total</button>
       <h3>Total of this product: <span id="total"></span></h3>
-    </div>
+</div>
 
-    <table id="table">
-<thead id="table-head">
-<tr>
-    <th>Product number</th>
-    <th>Cost</th>
-    <th>Tax</th>
-</tr>
-</thead>
-<tbody id="table-body">
-</tbody>
+<table id="table">
+	<thead id="table-head">
+	  <tr>
+	    <th>Product number</th>
+	    <th>Cost</th>
+	    <th>Tax</th>
+	  </tr>
+	</thead>
+	<tbody id="table-body">
+	</tbody>
 </table>
 
 <script>
+	
+/*--input print --*/	
+	
 function book() {
   var a = document.getElementById('tax').value = "0";}
 function food() {
@@ -147,6 +150,9 @@ function impo() {
   document.getElementById('tax').value = "0.05";}
 function others() {
   document.getElementById('tax').value = "0.1";}
+	
+/*--calculation for tax --*/	
+	
 function final() {
 
    var f = document.getElementById("tax").value;
@@ -167,8 +173,10 @@ function final() {
 		var esx = parseFloat ( document.getElementById('cost').value);
 		var vds = parseFloat ( esx * 0.05 );
 		var waq = parseFloat ( document.getElementById('total').innerHTML = vds + esx);
-	}
- 
+}
+	
+/*-- for table --*/
+	
 var tbody = document.getElementById("table-body");
 var tb1 = document.createElement("td");
 var tb2 = document.createElement("td");

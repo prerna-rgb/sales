@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<title>calc</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-shadow: 0;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color: #CCCCCC;
+}
+h1{
+	text-align: center;
+	letter-spacing: 2px;
+  font-size: 50px;
+  cursor: context-menu;
+}
+.categ{
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  text-transform: capitalize;
+  cursor: context-menu;
+}
+.categ button{
+  text-transform: capitalize;
+  margin-top: 20px;
+  border: 3px solid #3d3932;
+  background-color: #7F7157;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  margin-right: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+form{
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+  text-transform: capitalize;
+}
+label{
+  font-size: 18px;
+  font-weight: 600;
+}
+input{
+  border: 3px solid #3d3932;
+  padding: 10px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+.main{
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+  text-transform: capitalize;
+  }
+  
+.main button{
+  border: 3px solid #3d3932;
+  background-color: #7F7157;
+  padding: 10px 30px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.main h3{
+  margin-top: 10px;
+  cursor: context-menu;
+}
+table{
+  position: absolute;
+  top:35%;
+  right: 29%;
+  cursor: context-menu;
+}
+td, table th {
+  border: 3px solid #3d3932;
+  padding: 8px;
+}
+table  th {
+  padding: 9px 20px;
+  text-align: left;
+  border: 3px solid #3d3932;
+  background-color: #7F7157;
+  color: white;
+}
+</style>
+</head>
+<body>
+<h1>Sales</h1>
+<div class="categ">
+<h3>select a category</h3>
+<button onclick="book()">book</button>
+<button onclick="food()">food</button>
+<button onclick="medical()">medical</button>
+<button onclick="impo()">import</button>
+<button onclick="others()">others</button>
+</div>
+<div class="flexin">
+  <form method="POST"><br>
+    <label for="lname">prod id:</label><br>
+    <input type="text" id="ids" name="cost"><br><br>
+    <label for="lname">Cost:</label><br>
+    <input type="text" id="cost" name="cost"><br><br>
+    <label for="txa">tax added to product:</label><br>
+    <input type="text" id="tax" name="tax" style="cursor: no-drop;" readonly><br><br>
+    </form>
+
+    <div class="main">
+      <button id="final" onclick="final()">Find Total</button>
+      <h3>Total of this product: <span id="total"></span></h3>
+    </div>
+
+    <table id="table">
+<thead id="table-head">
+<tr>
+    <th>Product number</th>
+    <th>Cost</th>
+    <th>Tax</th>
+</tr>
+</thead>
+<tbody id="table-body">
+</tbody>
+</table>
+
+<script>
+function book() {
+  var a = document.getElementById('tax').value = "0";}
+function food() {
+  document.getElementById('tax').value = "0";}
+function medical() {
+  document.getElementById('tax').value = "0";}
+function impo() {
+  document.getElementById('tax').value = "0.05";}
+function others() {
+  document.getElementById('tax').value = "0.1";}
+function final() {
+
+   var f = document.getElementById("tax").value;
+	if (f == "0") {
+		var yse = parseFloat ( document.getElementById('cost').value);
+		var ges = parseFloat ( document.getElementById('total').innerHTML = yse);
+	}
+
+   var g = document.getElementById("tax").value;
+	if (g == "0.1") {
+		var ujn = parseFloat ( document.getElementById('cost').value);
+		var rds = parseFloat ( ujn * 0.1 );
+		var dwa = parseFloat ( document.getElementById('total').innerHTML = rds + ujn);
+	}
+
+   var h = document.getElementById("tax").value;
+	if (h == "0.05") {
+		var esx = parseFloat ( document.getElementById('cost').value);
+		var vds = parseFloat ( esx * 0.05 );
+		var waq = parseFloat ( document.getElementById('total').innerHTML = vds + esx);
+	}
+ 
+var tbody = document.getElementById("table-body");
+var tb1 = document.createElement("td");
+var tb2 = document.createElement("td");
+var tb3 = document.createElement("td");    
+var row = document.createElement("tr");
+
+tb1.innerHTML = document.getElementById("ids").value;
+tb2.innerHTML  = document.getElementById("cost").value;
+tb3.innerHTML  = document.getElementById("tax").value;
+
+row.appendChild(tb1);
+row.appendChild(tb2);
+row.appendChild(tb3);
+tbody.appendChild(row);
+}
+
+
+</script>
+
+
+
+</body>
+</html>
